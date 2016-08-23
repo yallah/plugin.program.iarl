@@ -1627,7 +1627,7 @@ def generate_uae_conf_file(iarl_data):
 	uae_config_template = os.path.join(iarl_data['addon_data']['addon_install_path'],'resources','data','UAE_config_template.fs-uae')
 	current_save_fileparts = os.path.split(iarl_data['current_save_data']['rom_save_filenames'][0])
 	current_save_path = current_save_fileparts[0]
-	file_base_name = clean_file_folder_name(iarl_data['current_rom_data']['rom_title'])
+	file_base_name = clean_file_folder_name(iarl_data['current_rom_data']]['rom_filenames'][0])
 	new_filename = os.path.join(current_save_path,str(file_base_name)+'.fs-uae')
 
 	if not os.path.isfile(new_filename):
@@ -1639,7 +1639,7 @@ def generate_uae_conf_file(iarl_data):
 			uae_config_template_content = uae_config_template_content.replace('%AMIGA_MODEL%',iarl_data['current_rom_data']['rom_emu_command'])
 		except:
 			pass
-		uae_config_template_content = uae_config_template_content.replace('%AMIGA_MODEL%','A4000') #Default Amiga model if one is not available
+		uae_config_template_content = uae_config_template_content.replace('%AMIGA_MODEL%','A500') #Default Amiga model if one is not available
 		for ii in range(0,len(iarl_data['current_save_data']['rom_save_filenames'])):
 			if iarl_data['current_save_data']['rom_save_filenames'][ii] is not None:
 				if len(iarl_data['current_save_data']['rom_save_filenames'][ii])>0:
@@ -1666,7 +1666,7 @@ def generate_uae_cd32_conf_file(iarl_data):
 	uae_config_template = os.path.join(iarl_data['addon_data']['addon_install_path'],'resources','data','UAE_cd32_config_template.fs-uae')
 	current_save_fileparts = os.path.split(iarl_data['current_save_data']['rom_save_filenames'][0])
 	current_save_path = current_save_fileparts[0]
-	file_base_name = clean_file_folder_name(iarl_data['current_rom_data']['rom_title'])
+	file_base_name = clean_file_folder_name(iarl_data['current_rom_data']]['rom_filenames'][0])
 	new_filename = os.path.join(current_save_path,str(file_base_name)+'.fs-uae')
 	current_dialog = xbmcgui.Dialog()
 	current_dialog.notification('Please Wait','Processing Archive...', xbmcgui.NOTIFICATION_INFO, 500000)
